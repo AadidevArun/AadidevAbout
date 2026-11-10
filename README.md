@@ -1,7 +1,7 @@
 ⚡ AADIDEV — Personal Digital HQ
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=venom&height=220&color=0:050505,50:063d22,100:00ff88&text=AADIDEV&fontColor=ffffff&fontSize=75&fontAlignY=45&desc=THE%20DIGITAL%20COMMAND%20CENTRE&descAlignY=68&animation=fadeIn" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=230&color=0:050505,45:064d2d,100:00ff88&text=AADIDEV&fontColor=ffffff&fontSize=75&fontAlignY=43&desc=THE%20DIGITAL%20COMMAND%20CENTRE&descAlignY=68&descSize=20&animation=fadeIn" width="100%" alt="AADIDEV — The Digital Command Centre" />
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@ AADIDEV is my personal website and digital headquarters — a place to showcase 
 
 It's where software development meets aviation, design and experimentation.
 
-🔗 Live website: aadidve.pages.dev
+🔗 Live website: aadidev.pages.dev
 
 🛰️ What's Inside?
 
@@ -102,13 +102,7 @@ Introduce new digital tools
 
 Continue improving the interface
 
-👨‍💻 About the Developer
 
-I'm Aadidev Arun, a student interested in software engineering, aviation and technology.
-
-I enjoy building websites, experimenting with interfaces, exploring AI and creating projects that bring ideas to life.
-
-I believe the best way to learn technology is to build with it.
 
 📡 Connect
 
