@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- about.html: About Me page — timeline, favourite things, fun facts, pull-quote. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me — Aadidev</title>
+  <meta name="description" content="Get to know Aadidev — Year 8, cricket and football obsessive, Six7 fan, DevNation host.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;700&family=Playfair+Display:wght@600;700&family=Unbounded:wght@600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/images/favicon.png"><link rel="stylesheet" href="css/extra.css"><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Unbounded:wght@800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/csk.css"></head>
+<body data-page="about">
+
+  <!-- SECTION: Nav -->
+  <header class="site-nav">
+
+    <a href="index.html" class="nav-logo">
+      <span class="logo-mark">D</span>
+      <span>AADIDEV<span class="logo-sub">DevNation</span></span>
+    </a>
+    <button class="nav-audio-btn" id="audioToggle" aria-label="Play music">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="5 3 19 12 5 21 5 3"/>
+  </svg>
+</button>
+<audio id="bgAudio" src="indian-song.mp3" loop></audio>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html" data-page="home">Home</a>
+      <a href="about.html" data-page="about">About</a>
+      <a href="gallery.html" data-page="gallery">Gallery</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <div class="nav-mobile-panel">
+    <ul>
+      <li><a href="index.html" data-page="home">Home</a></li>
+      <li><a href="about.html" data-page="about">About</a></li>
+      <li><a href="gallery.html" data-page="gallery">Gallery</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- SECTION: About hero -->
+    <section class="about-hero wrap reveal is-visible">
+      <p class="tag">// 01 · about.me</p>
+      <h1>Aadidev, Year 8. Always on a <span class="marker-highlight">screen, a pitch</span>, or both.</h1>
+      <span class="sticker">nice to meet you</span>
+    </section>
+
+    <section class="wrap reveal"><dl class="kv"><div><dt>Currently</dt><dd>Year 8 at Wallington County Grammar School</dd></div><div><dt>Focused on</dt><dd>Cricket, football &amp; DevNation</dd></div><div><dt>Also into</dt><dd>Computer Science, aviation &amp; music</dd></div><div><dt>Always watching</dt><dd>India and England</dd></div></dl></section>
+<!-- SECTION: Timeline -->
+    <section class="wrap reveal">
+      <h2 class="section-heading"><span class="code-label">// 02 · about.story</span>My Story So Far</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="t-year">Early years</span>
+          <h3>Started playing Football, and Nerdy</h3>
+          <p>I remember playing football in school. I was very smart, and had a pen license before I knew it.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-year">Discovering cricket</span>
+          <h3>India match on TV, instantly hooked</h3>
+          <p>Watched my first India vs Pakistan match and decided then and there I was an India fan for life — win or lose.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-year">The Nerdy Era</span>
+          <h3>Wallington County Grammar School</h3>
+          <p>I passed the 11+ and got into WCGS. I began my achievement streak from then.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="t-year">This year</span>
+          <h3>Started DevNation</h3>
+          <p>Launched my YouTube channel to talk about cricket, football and music — basically everything I already talk about anyway, just on camera now.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Favourite things -->
+    <section class="wrap reveal">
+      <h2 class="section-heading"><span class="code-label">// 03 · about.favourites</span>Favourite Things</h2>
+      <div class="fav-things-grid">
+        <div class="card">
+          <svg class="doodle-icon" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M6 16l14-9 14 9-14 19z"/>
+            <path d="M9 17l11 16 11-16"/>
+            <circle cx="17" cy="16" r="1.3" fill="var(--color-accent)" stroke="none"/>
+            <circle cx="23" cy="20" r="1.3" fill="var(--color-accent)" stroke="none"/>
+            <circle cx="19" cy="24" r="1.3" fill="var(--color-accent)" stroke="none"/>
+          </svg>
+          <h4>Food</h4>
+          <p>Pizza, no contest.</p>
+        </div>
+        <div class="card">
+          <svg class="doodle-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="5" y="7" width="30" height="20" rx="2"/>
+  <line x1="2" y1="27" x2="38" y2="27"/>
+  <line x1="14" y1="33" x2="26" y2="33"/>
+  <line x1="20" y1="27" x2="20" y2="33"/>
+</svg>
+          <h4>Subject</h4>
+          <p>Computer Science - How else would I have made this website (partly)</p>
+        </div>
+        <div class="card">
+          <svg class="doodle-icon" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M8 32 22 17"/>
+            <path d="M21 16c2-3 6-7 8-8 1 1 1 3-1 5-2 3-5 6-8 7z"/>
+            <circle cx="30" cy="9" r="3.2"/>
+          </svg>
+          <h4>Cricket Player</h4>
+          <p>Sanju Samson.</p>
+        </div>
+        <div class="card">
+          <svg class="doodle-icon" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M5 30c4 1 8-1 10-4 3 2 9 2 11-1 4 1 7-1 9-4"/>
+            <path d="M9 24c3-9 8-15 13-16 4 9 3 17-2 21-5 3-9 0-11-5z"/>
+          </svg>
+          <h4>Football Player</h4>
+          <p>Lionel Messi, Jude Bellingham and Harry Kane, and Marcus Rashford.
+          </p>
+        </div>
+        <div class="card">
+          <svg class="doodle-icon" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M16 28V10l14-3v18"/>
+            <circle cx="13" cy="29" r="3.4"/>
+            <circle cx="27" cy="25" r="3.4"/>
+          </svg>
+          <h4>Song</h4>
+          <p>I really don't care actually.</p>
+        </div>
+      </div>
+      <div class="card" style="text-align:center;">
+  <svg class="doodle-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="8" y="4" width="24" height="32" rx="2"/>
+    <line x1="12" y1="12" x2="28" y2="12"/>
+    <line x1="12" y1="18" x2="28" y2="18"/>
+    <line x1="12" y1="24" x2="22" y2="24"/>
+  </svg>
+  <h4>Fav Book</h4>
+  <p>Noughts & Crosses</p>
+</div>
+    </section>
+    
+
+    <!-- SECTION: Fun facts -->
+    <section class="wrap reveal">
+      <h2 class="section-heading"><span class="code-label">// 04 · about.facts</span>Fun Facts</h2>
+      <div class="fun-facts">
+        <div class="card fact-card">
+          <span class="fact-num">01</span>
+          <p>I've rebuilt my India Dream XI more times than I can count — it changes after literally every series.</p>
+        </div>
+        <div class="card fact-card">
+          <span class="fact-num">02</span>
+          <p>I will defend Sanju Samson's batting average in any conversation, unprompted.</p>
+        </div>
+        <div class="card fact-card">
+          <span class="fact-num">03</span>
+          <p>I've watched England lose on penalties more times than I'd like to admit and I'm still not giving up on them.</p>
+        </div>
+        <div class="card fact-card">
+          <span class="fact-num">04</span>
+          <p>My camera roll is 60% cricket scoreboards, 30% football highlights, 10% actual photos of people.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Pull quote -->
+    <section class="wrap reveal">
+      <div class="pull-quote">
+        "Did you know? I started keeping score of my own backyard matches before I even knew what a proper scorebook looked like."
+      </div>
+    </section>
+  </main>
+
+  <!-- SECTION: Footer -->
+  <footer class="site-footer">
+    <div class="tricolour-divider"></div>
+    <p>Built by Aadidev — DevNation HQ. © 2026<span class="footer-signature">— Aadidev</span></p>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/about.js"></script>
+  <script src="js/audio.js"></script>
+<script src="js/konami.js"></script>
+</body>
+</html>

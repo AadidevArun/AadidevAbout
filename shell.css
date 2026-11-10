@@ -1,0 +1,227 @@
+/* --------------------------------------------------------------------------
+   1. ROOT VARIABLES — DEFAULT THEME (home base: navy + lime)
+   -------------------------------------------------------------------------- */
+:root {
+  /* colour */
+  --color-bg: #0d1b2a;
+  --color-bg-alt: #112638;
+  --color-text: #f4f6f5;
+  --color-text-dim: #9fb0bd;
+  --color-accent: #aaff00;
+  --color-secondary: #ffffff;
+  --color-card: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.1);
+
+  /* fonts */
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* cursor */
+  --cursor-color: #aaff00;
+
+  /* spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+
+  /* misc */
+  --radius: 14px;
+  --max-width: 1180px;
+  --nav-height: 76px;
+}
+
+/* FOOTBALL THEME — England mode */
+html[data-theme="football"] {
+  --color-bg: #ffffff;
+  --color-bg-alt: #f4f4f7;
+  --color-text: #14213d;
+  --color-text-dim: #5b6478;
+  --color-accent: #cf081f;
+  --color-secondary: #003087;
+  --color-card: rgba(0, 48, 135, 0.05);
+  --color-border: rgba(0, 48, 135, 0.15);
+  --font-heading: "Oswald", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --cursor-color: #cf081f;
+}
+
+/* CRICKET THEME — India mode */
+html[data-theme="cricket"] {
+  --color-bg: #032b52;
+  --color-bg-alt: #04386a;
+  --color-text: #f6efe2;
+  --color-text-dim: #b9c8d8;
+  --color-accent: #cc0000;
+  --color-secondary: #ffb800;
+  --color-card: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(255, 184, 0, 0.25);
+  --font-heading: "Anton", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --cursor-color: #cc0000;
+}
+/* --------------------------------------------------------------------------
+   3. CUSTOM CURSORS
+   -------------------------------------------------------------------------- */
+@media (pointer: fine) {
+  body { cursor: none; }
+  a, button, input, textarea, label, .clickable { cursor: none; }
+}
+
+#cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  background-image: url('cursor.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease;
+}
+
+html[data-theme="football"] #cursor-dot {
+  background: none;
+  box-shadow: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  background-image: url('cursor-football.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+html[data-theme="cricket"] #cursor-dot {
+  background: none;
+  box-shadow: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  background-image: url('cursor-cricket.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#cursor-dot svg { width: 100%; height: 100%; display: none; }
+
+
+
+body[data-cursor-down] #cursor-dot { width: 10px; height: 10px; }
+
+/* --------------------------------------------------------------------------
+   5. THEME SWITCHER PILL
+   -------------------------------------------------------------------------- */
+.theme-pill {
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  display: flex;
+  gap: 6px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 8px;
+  z-index: 600;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.theme-pill button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: transparent;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.theme-pill button:hover { transform: translateY(-3px); }
+
+.theme-pill button.is-active {
+  border-color: var(--color-accent);
+  background: var(--color-card);
+}
+
+/* --------------------------------------------------------------------------
+   6. AMBIENT BACKGROUND ELEMENTS (per theme, pure CSS)
+   -------------------------------------------------------------------------- */
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* default theme: drifting geometric shapes */
+.ambient .shape {
+  position: absolute;
+  border: 1px solid rgba(170,255,0,0.18);
+  border-radius: 18%;
+  animation: driftShape 26s linear infinite;
+}
+.ambient .shape:nth-child(1) { width: 90px; height: 90px; top: 12%; left: 6%; animation-duration: 30s; }
+.ambient .shape:nth-child(2) { width: 50px; height: 50px; top: 68%; left: 80%; border-radius: 50%; animation-duration: 22s; animation-direction: reverse; }
+.ambient .shape:nth-child(3) { width: 130px; height: 130px; top: 40%; left: 88%; animation-duration: 36s; }
+.ambient .shape:nth-child(4) { width: 60px; height: 60px; top: 80%; left: 14%; border-radius: 50%; animation-duration: 18s; }
+
+@keyframes driftShape {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(18px,-26px) rotate(180deg); }
+  100% { transform: translate(0,0) rotate(360deg); }
+}
+
+/* football theme: slow rolling ball corner */
+html[data-theme="football"] .ambient::after {
+  content: "";
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, #fff 0 100%) ,
+    repeating-conic-gradient(#14213d 0deg 30deg, #fff 30deg 60deg);
+  opacity: 0.12;
+  animation: rollBall 14s linear infinite;
+}
+@keyframes rollBall {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(-30px,-10px) rotate(360deg); }
+  100% { transform: translate(0,0) rotate(720deg); }
+}
+
+/* cricket theme: slowly spinning red ball corner */
+html[data-theme="cricket"] .ambient::after {
+  content: "";
+  position: absolute;
+  bottom: -30px; right: -30px;
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e23b3b, #990000 70%);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  opacity: 0.18;
+  animation: spinBall 20s linear infinite;
+}
+@keyframes spinBall {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* bridge: v1 themes recolour the v2 home */
+#cur,#cur2{display:none!important}
+html[data-theme="football"]{--bg:#0a1f4a;--bg2:#071533;--acc:#cf081f;--sa:#cf081f}
+html[data-theme="cricket"]{--bg:#032b52;--bg2:#021e3a;--acc:#cc0000;--gold:#ffb800;--sa:#cc0000}
+.theme-pill{right:auto;left:1rem;bottom:1rem}
+.nav-audio-btn{position:fixed;left:1rem;bottom:4.8rem;z-index:600;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:var(--color-bg-alt);color:#fff;display:flex;align-items:center;justify-content:center;transition:border-color .2s}
+.nav-audio-btn.playing{border-color:var(--acc)}
+.pgnav{display:flex;gap:1.2rem;margin-left:auto;margin-right:1rem;position:relative;z-index:5}.pgnav a{color:rgba(255,255,255,.75);font:600 .78rem Sora,sans-serif;text-decoration:none}.pgnav a:hover{color:var(--acc)}@media(max-width:760px){.pgnav{display:none}}
+.explore{position:relative;z-index:5;background:var(--bg2);padding:4rem 6%}.explore .code{font:.8rem ui-monospace,monospace;color:var(--acc);letter-spacing:.1em}.explore h2{margin:.4rem 0 1.4rem;font-weight:800}
+.explore .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}.explore a{display:block;padding:1.4rem;border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#fff;text-decoration:none;font-weight:600}.explore a:hover{border-color:var(--acc)}.explore small{display:block;color:rgba(255,255,255,.5);font-weight:400}

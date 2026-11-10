@@ -1,0 +1,255 @@
+/* ==========================================================================
+   splash.css
+   Controls: the cinematic intro splash screen shown only on index.html, only
+   once per browser session (tracked via sessionStorage in splash.js).
+   Full-bleed, no boxed card: a plain dark background with a faint vignette,
+   a small avatar brand mark, then "Aadidev" written on in an elegant
+   signature script with a travelling pen tip, then "ARUN" dropping in bold
+   letter-by-letter with a green gradient fill, then a small "DevNation"
+   signature tag. No glow/halo effects — flat, clean, full width.
+   ========================================================================== */
+
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at 50% 45%, #111418 0%, #07080a 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.7s ease;
+}
+
+#splash-screen.splash-exit { opacity: 0; }
+#splash-screen.splash-hidden { display: none; }
+
+/* faint grain dust drifting, subtle texture only */
+.splash-dust {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 1;
+}
+.splash-dust.show { opacity: 1; }
+.splash-dust span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.22;
+  animation: splashDustFloat 6s ease-in-out infinite;
+}
+@keyframes splashDustFloat {
+  0% { transform: translateY(0); opacity: 0.1; }
+  50% { transform: translateY(-22px); opacity: 0.28; }
+  100% { transform: translateY(0); opacity: 0.1; }
+}
+
+/* --------------------------------------------------------------------------
+   Full-width content lockup — no card, no border, no backdrop blur
+   -------------------------------------------------------------------------- */
+.splash-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  text-align: center;
+  width: min(94vw, 1100px);
+  opacity: 0;
+}
+.splash-content.show {
+  animation: splashContentIn 0.5s ease forwards;
+}
+@keyframes splashContentIn {
+  to { opacity: 1; }
+}
+.splash-content.fade-out {
+  animation: splashContentOut 0.5s ease forwards;
+}
+@keyframes splashContentOut {
+  to { opacity: 0; transform: scale(1.02); }
+}
+
+/* small avatar brand mark — no halo, just a clean spring-in */
+.splash-avatar-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.5);
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+.splash-avatar-wrap.show {
+  animation: splashAvatarSpring 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes splashAvatarSpring {
+  0% { opacity: 0; transform: scale(0.5); }
+  60% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.splash-avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.splash-fallback-mark {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Unbounded", sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #ffffff;
+  background: #2b2b2b;
+}
+
+/* --------------------------------------------------------------------------
+   "Aadidev" — elegant signature script, written on with a travelling pen tip
+   -------------------------------------------------------------------------- */
+.splash-script-row {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.splash-script {
+  font-family: "Mrs Saint Delafield", cursive;
+  font-weight: 400;
+  font-size: clamp(3.4rem, 13vw, 8rem);
+  line-height: 1;
+  color: #ffffff;
+  white-space: nowrap;
+  display: inline-block;
+  clip-path: inset(-40% 100% -40% -4%);
+}
+
+.splash-script.draw {
+  animation: splashScriptWipe 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes splashScriptWipe {
+  to { clip-path: inset(-40% -4% -40% -4%); }
+}
+
+/* plain pen tip, no glow — just a small solid dot tracing the wipe */
+.splash-pen {
+  position: absolute;
+  top: 58%;
+  left: 0%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.splash-pen.draw {
+  animation: splashPenTravel 1.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes splashPenTravel {
+  0% { left: 0%; opacity: 1; }
+  92% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   "ARUN" — bold letters dropping in from below, green gradient fill
+   -------------------------------------------------------------------------- */
+.splash-lastname {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: -0.1rem;
+}
+
+.splash-lastname .l-letter {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.4rem, 15vw, 9.5rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  background: linear-gradient(180deg, #ff8a7e 0%, #F13024 45%, #a3150d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(80px);
+}
+
+.splash-lastname .l-letter.show {
+  animation: splashLastNameRise 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes splashLastNameRise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* trailing full stop rendered as a solid dot to match a logotype period */
+.splash-lastname .l-dot {
+  width: clamp(1rem, 3.4vw, 1.9rem);
+  height: clamp(1rem, 3.4vw, 1.9rem);
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ff8a7e 0%, #a3150d 100%);
+  align-self: flex-end;
+  margin: 0 0 0.35em 0.1em;
+  opacity: 0;
+  transform: translateY(80px) scale(0.4);
+}
+.splash-lastname .l-dot.show {
+  animation: splashDotPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+@keyframes splashDotPop {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --------------------------------------------------------------------------
+   "DevNation" small signature tag beneath the name lockup
+   -------------------------------------------------------------------------- */
+.splash-sub {
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: clamp(1.2rem, 3.2vw, 1.7rem);
+  color: #9fb0bd;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(8px);
+  margin-top: 1rem;
+}
+.splash-sub.show {
+  animation: splashSubIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes splashSubIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* page content underneath, faded in once splash clears */
+body.splash-active main,
+body.splash-active .site-nav,
+body.splash-active .theme-pill,
+body.splash-active .site-footer {
+  opacity: 0;
+}
+body main,
+body .site-nav,
+body .theme-pill,
+body .site-footer {
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}

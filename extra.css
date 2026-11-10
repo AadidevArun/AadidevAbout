@@ -1,0 +1,9 @@
+.code-label{display:block;font:.8rem ui-monospace,Menlo,monospace;color:var(--color-accent);letter-spacing:.08em;margin-bottom:.3rem}
+.kv{display:grid;gap:0;max-width:640px;border-top:1px solid var(--color-border)}.kv div{display:flex;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--color-border)}
+.kv dt{min-width:9rem;font:.85rem ui-monospace,Menlo,monospace;color:var(--color-accent)}.kv dd{color:var(--color-text-dim)}
+
+:root,html[data-theme=default]{--color-bg:#131424;--color-bg-alt:#0d0c1e;--color-text:#fff;--color-text-dim:rgba(255,255,255,.6);--color-accent:#F13024;--color-card:rgba(255,255,255,.04);--color-border:rgba(255,255,255,.1);--cursor-color:#F13024;--font-heading:Sora,sans-serif;--font-body:Sora,sans-serif}
+html[data-theme=football]{--color-bg:#0a1f4a;--color-bg-alt:#071533;--color-text:#f4f6f5;--color-text-dim:rgba(244,246,245,.65);--color-accent:#cf081f;--color-secondary:#fff;--color-card:rgba(255,255,255,.05);--color-border:rgba(255,255,255,.14);--font-heading:Sora,sans-serif;--font-body:Sora,sans-serif}
+html[data-theme=cricket]{--color-bg:#032b52;--color-bg-alt:#021e3a;--color-accent:#cc0000;--color-secondary:#ffb800;--font-heading:Sora,sans-serif;--font-body:Sora,sans-serif}
+body{background-image:radial-gradient(circle at 85% 0%,rgba(241,48,36,.14),transparent 55%);background-attachment:fixed}
+h1,h2,h3{font-weight:800}
